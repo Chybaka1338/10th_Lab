@@ -26,6 +26,7 @@ namespace WinFormsApp2
         private void button3_Click(object sender, EventArgs e)
         {
             Task3 form = new Task3(this);
+            form.Show();
         }
     }
 }
