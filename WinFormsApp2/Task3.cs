@@ -44,7 +44,7 @@ namespace WinFormsApp2
         {
             g.DrawLine(pen, -200, 0, 200, 0);
             g.DrawLine(new Pen(Color.Black, 1f), -4, -1 * scaleY, 4, -1 * scaleY);
-            g.DrawLine(new Pen(Color.Black, 1f), 1 * scaleX, 4, 1 * scaleX, -4) ;
+            g.DrawLine(new Pen(Color.Black, 1f), 1 * scaleX, 4, 1 * scaleX, -4);
             label1.Location = new Point(dx + 200, dy + 2);
             label2.Location = new Point(dx + 20, dy - 200);
             g.DrawLine(pen, 0, 200, 0, -200);
