@@ -17,8 +17,8 @@ namespace WinFormsApp2
         Pen pen = new Pen(Color.Black, 1f);
         int dx = 0;
         int dy = 0;
-        static int scaleX = 5;
-        static int scaleY = 1;
+        static int scaleX = 10;
+        static int scaleY = 5;
 
         public Task3(Form1 form)
         {
@@ -42,12 +42,14 @@ namespace WinFormsApp2
 
         private void DrawCoordPlane(Graphics g)
         {
-            g.DrawLine(pen, -200, 0, 200, 0);
+            g.DrawLine(pen, -400, 0, 400, 0);
             g.DrawLine(new Pen(Color.Black, 1f), -4, -1 * scaleY, 4, -1 * scaleY);
             g.DrawLine(new Pen(Color.Black, 1f), 1 * scaleX, 4, 1 * scaleX, -4);
-            label1.Location = new Point(dx + 200, dy + 2);
-            label2.Location = new Point(dx + 20, dy - 200);
-            g.DrawLine(pen, 0, 200, 0, -200);
+            label1.Location = new Point(dx + 400, dy + 2);
+            label2.Location = new Point(dx + 20, dy - 400);
+            label3.Location = new Point(dx + scaleX, dy + scaleY);
+            label4.Location = new Point(dx - 2 * scaleX, dy - 3 * scaleY);
+            g.DrawLine(pen, 0, 400, 0, -400);
         }
 
         private void DrawGraph(double a, double b, int n, MathFunc Func, Graphics g)
@@ -55,8 +57,9 @@ namespace WinFormsApp2
             double increment = (b - a) / n;
             for (double x = a; x <= b; x += increment)
             {
-                int y = Func((int)x);
-                g.DrawEllipse(pen, (int)x * scaleX, -y * scaleY, 1, 1);
+                int y = Func((int)x) * (-1);
+                g.DrawEllipse(new Pen(Color.Red, 2.5f), (int)x * scaleX, y * scaleY, 1, 1);
+                g.DrawLine(new Pen(Color.Black, 1f), (int)x * scaleX, 4, (int)x * scaleX, -4);
             }
         }
     }
